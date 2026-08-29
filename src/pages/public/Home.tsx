@@ -50,7 +50,11 @@ export default function Home() {
                 View My Work
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
-              <a href="#" className="flex items-center justify-center gap-2 border border-border-hover text-white hover:bg-white/5 px-6 py-3.5 rounded-lg font-medium transition-all">
+              <a
+                href="/Aloysius%20Christian%20Putra_CV%20ATS%20VII%20TKJ%202026%20.pdf"
+                download="Aloysius-Christian-CV-ATS-VII-TKJ-2026.pdf"
+                className="flex items-center justify-center gap-2 border border-border-hover text-white hover:bg-white/5 px-6 py-3.5 rounded-lg font-medium transition-all"
+              >
                 Download CV
                 <Download size={18} />
               </a>
