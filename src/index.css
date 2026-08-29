@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+  --color-border-main: var(--border-main);
+  --color-bg-muted: var(--bg-muted);
+  --color-border-hover: var(--border-hover);
+}
+
+:root {
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --bg-main: #060913;
+  --bg-card: #0F172A;
+  --border-main: #1E293B;
+  --bg-muted: #0B1120;
+  --border-hover: #334155;
+}
+
+.midnight {
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --bg-main: #020617;
+  --bg-card: #0f172a;
+  --border-main: #1e293b;
+  --bg-muted: #020617;
+  --border-hover: #334155;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: #fff;
+}
+
+/* Mobile-specific accessibility and layout optimizations for #root */
+@media (max-width: 639px) and (orientation: portrait) {
+  #root {
+    overflow-x: hidden;
+  }
+
+  /* Increase minimum touch-target size of social links and interactive elements */
+  #root a,
+  #root button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure sufficient padding between interactive elements */
+  #root .grid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}
