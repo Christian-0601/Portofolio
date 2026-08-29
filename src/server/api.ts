@@ -1,6 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import fs from 'fs/promises';
+import path from 'path';
 import { getDb } from './db.js';
 
 const router = express.Router();
@@ -72,6 +74,19 @@ router.post('/hero', authMiddleware, async (req, res) => {
     [greeting, name, headline, description, cta_text, cta_url, target_role]
   );
   res.json({ success: true });
+});
+
+// Save Content to JSON file (Admin only)
+router.post('/save-content', authMiddleware, async (req, res) => {
+  try {
+    const content = req.body;
+    const contentPath = path.join(process.cwd(), 'public', 'content.json');
+    await fs.writeFile(contentPath, JSON.stringify(content, null, 2), 'utf-8');
+    res.json({ success: true, message: 'Content saved successfully' });
+  } catch (error) {
+    console.error('Error saving content:', error);
+    res.status(500).json({ error: 'Failed to save content' });
+  }
 });
 
 export default router;
