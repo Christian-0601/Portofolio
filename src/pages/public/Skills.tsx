@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BottomBar } from '../../components/layout/BottomBar';
 import { Code2, Network, Wrench, ShieldCheck } from 'lucide-react';
 
 import AnimatedSection from '../../components/AnimatedSection';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const skillCategories = [
   {
@@ -54,6 +55,14 @@ const skillCategories = [
 ];
 
 export default function Skills() {
+  const [content, setContent] = useState(defaultPortfolioContent);
+
+  useEffect(() => {
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+  }, []);
+
   return (
     <div className="flex-1 flex flex-col relative z-20 h-full">
       <div className="flex-1 w-full space-y-12 pb-10">
@@ -63,8 +72,7 @@ export default function Skills() {
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Capabilities</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Technical Skills</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            A comprehensive overview of my technical proficiencies, ranging from software development 
-            to server management and network architecture.
+            {content.about.bio}
           </p>
         </AnimatedSection>
 

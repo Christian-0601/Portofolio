@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BottomBar } from '../../components/layout/BottomBar';
 import { Milestone } from 'lucide-react';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const mockJourney = [
   {
@@ -31,11 +32,17 @@ const mockJourney = [
 
 export default function Journey() {
   const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState(defaultPortfolioContent);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
+
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,10 +53,9 @@ export default function Journey() {
         {/* Header */}
         <div className="mt-8">
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Timeline</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">My Journey</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">{content.journey.title}</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            A chronological timeline of my educational milestones, technical explorations, 
-            and professional growth in the tech industry.
+            {content.journey.description}
           </p>
         </div>
 
@@ -59,10 +65,10 @@ export default function Journey() {
             {loading ? (
               Array.from({ length: 4 }).map((_, idx) => (
                 <div key={idx} className="relative pl-8 md:pl-12 pb-16 last:pb-0">
-                  <div className="absolute -left-[21px] top-1">
+                  <div className="absolute -left-5.25 top-1">
                     <div className="w-10 h-10 rounded-full bg-border-main animate-pulse shadow-[0_0_0_8px_#000]"></div>
                   </div>
-                  <div className="bg-bg-card border border-border-main rounded-3xl p-6 md:p-8 h-[180px] flex flex-col gap-4">
+                  <div className="bg-bg-card border border-border-main rounded-3xl p-6 md:p-8 h-45 flex flex-col gap-4">
                      <div className="flex justify-between items-center">
                        <div className="h-6 w-1/2 bg-border-main animate-pulse rounded-full"></div>
                        <div className="h-6 w-24 bg-border-main animate-pulse rounded-full"></div>
@@ -80,7 +86,7 @@ export default function Journey() {
                 <div key={item.id} className="relative pl-8 md:pl-12 pb-16 last:pb-0 group">
                   
                   {/* Timeline Node/Dot */}
-                  <div className="absolute -left-[21px] top-1 flex items-center justify-center">
+                  <div className="absolute -left-5.25 top-1 flex items-center justify-center">
                     <div className="w-10 h-10 rounded-full bg-bg-card border border-border-main flex items-center justify-center group-hover:border-accent transition-colors duration-300 z-10 shadow-[0_0_0_8px_#000]">
                       <Milestone size={16} className="text-[#666] group-hover:text-accent transition-colors duration-300" />
                     </div>

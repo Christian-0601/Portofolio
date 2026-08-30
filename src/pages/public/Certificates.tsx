@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BottomBar } from '../../components/layout/BottomBar';
 import { Award, X, ExternalLink, ShieldCheck, Calendar, Hash } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const mockCertificates = [
   {
@@ -51,11 +52,17 @@ export default function Certificates() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('All');
   const [sort, setSort] = useState('Newest');
+  const [content, setContent] = useState(defaultPortfolioContent);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
+
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -69,11 +76,15 @@ export default function Certificates() {
     return () => { document.body.style.overflow = 'unset'; }
   }, [selectedCert]);
 
-  const filteredCerts = mockCertificates
+  const filterOptions = ['All', ...Array.from(new Set(content.certificates.map(cert => cert.issuer)))];
+
+  const filteredCerts = content.certificates
     .filter(cert => filter === 'All' || cert.issuer === filter)
     .sort((a, b) => {
-      if (sort === 'Newest') return b.timestamp - a.timestamp;
-      return a.timestamp - b.timestamp;
+      const aTime = new Date(a.date).getTime() || 0;
+      const bTime = new Date(b.date).getTime() || 0;
+      if (sort === 'Newest') return bTime - aTime;
+      return aTime - bTime;
     });
 
   return (
@@ -93,7 +104,7 @@ export default function Certificates() {
         {/* Controls */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex space-x-2 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
-            {['All', 'Amazon Web Services', 'MikroTik', 'Cisco', 'BNSP'].map((filterOption) => (
+            {filterOptions.map((filterOption) => (
               <button
                 key={filterOption}
                 onClick={() => setFilter(filterOption)}
@@ -127,7 +138,7 @@ export default function Certificates() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="bg-bg-card border border-border-main rounded-3xl p-6 flex flex-col h-[220px]"
+                  className="bg-bg-card border border-border-main rounded-3xl p-6 flex flex-col h-55"
                 >
                   <div className="flex justify-between mb-6">
                     <div className="w-12 h-12 bg-border-main animate-pulse rounded-2xl"></div>
@@ -151,27 +162,31 @@ export default function Certificates() {
                   transition={{ duration: 0.2 }}
                   whileHover={{ y: -4 }}
                   onClick={() => setSelectedCert(cert)}
-                  className="bg-bg-card border border-border-main rounded-3xl p-6 flex flex-col cursor-pointer hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,255,0,0.05)] transition-colors duration-300 group"
+                  className="bg-bg-card border border-border-main rounded-3xl p-5 flex flex-col cursor-pointer hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,255,0,0.05)] transition-all duration-300 group overflow-hidden"
                 >
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="h-1.5 w-full rounded-full bg-linear-to-r from-accent to-transparent mb-5" />
+                  <div className="flex items-start justify-between mb-5">
                     <div className="w-12 h-12 bg-white/5 group-hover:bg-accent/10 rounded-2xl flex items-center justify-center text-white group-hover:text-accent transition-colors">
                       <Award size={24} />
                     </div>
-                    <div className="bg-border-main px-3 py-1 rounded-full text-xs font-mono text-[#888] group-hover:text-white transition-colors">
+                    <div className="bg-border-main px-3 py-1 rounded-full text-[10px] font-mono text-[#888] group-hover:text-white transition-colors tracking-[0.12em] uppercase">
                       {cert.date}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">{cert.name}</h3>
-                  <div className="flex items-center space-x-2 text-[#666] mb-4">
-                    <ShieldCheck size={16} />
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors leading-snug">{cert.name}</h3>
+                  <div className="flex items-center space-x-2 text-[#666] mb-5">
+                    <ShieldCheck size={16} className="text-accent" />
                     <span className="text-sm font-medium">{cert.issuer}</span>
                   </div>
                   
                   <div className="mt-auto pt-4 border-t border-border-main flex items-center justify-between">
-                    <span className="text-accent text-xs font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-accent text-[10px] font-mono uppercase tracking-[0.18em] group-hover:translate-x-1 transition-transform">
                       View Details
                     </span>
+                    {cert.credentialUrl && (
+                      <span className="text-[#666] text-xs">↗</span>
+                    )}
                   </div>
                 </motion.div>
               ))
@@ -225,7 +240,7 @@ export default function Certificates() {
                 </div>
                 
                 <p className="text-[#888] leading-relaxed">
-                  {selectedCert.description}
+                  {selectedCert.description || 'Professional credential issued by the provider and available to view on the official badge profile.'}
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border-main">
@@ -239,7 +254,7 @@ export default function Certificates() {
                     <p className="text-[10px] text-[#666] font-mono uppercase tracking-widest mb-1 flex items-center gap-1">
                       <Hash size={12} /> Credential ID
                     </p>
-                    <p className="text-white text-sm font-medium">{selectedCert.credentialId}</p>
+                    <p className="text-white text-sm font-medium">{selectedCert.credentialId || 'Credly Badge'}</p>
                   </div>
                 </div>
               </div>
@@ -247,7 +262,7 @@ export default function Certificates() {
               {/* Modal Footer */}
               <div className="p-6 bg-[#0f0f0f] border-t border-border-main flex justify-end">
                 <a 
-                  href={selectedCert.credentialUrl}
+                  href={selectedCert.credentialUrl || 'https://www.credly.com'}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center space-x-2 bg-accent hover:bg-accent-hover text-black px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-colors"

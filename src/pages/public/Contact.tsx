@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BottomBar } from '../../components/layout/BottomBar';
 import { Send, GitBranch, Briefcase, MessageSquare, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 import { SiLinktree } from 'react-icons/si';
 import AnimatedSection from '../../components/AnimatedSection';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const socialLinks = [
   {
@@ -32,6 +33,7 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const [content, setContent] = useState(defaultPortfolioContent);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,6 +44,12 @@ export default function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -206,7 +214,7 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Email Me</p>
-                <p className="text-white font-medium">tianputra594@gmail.com</p>
+                <p className="text-white font-medium">{content.contact.email}</p>
               </div>
 
               <div className="bg-bg-card border border-border-main rounded-3xl p-6 flex flex-col items-start hover:border-border-hover transition-colors">
@@ -214,7 +222,7 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Location</p>
-                <p className="text-white font-medium">Indonesia</p>
+                <p className="text-white font-medium">{content.contact.location}</p>
               </div>
             </AnimatedSection>
 
@@ -231,7 +239,7 @@ export default function Contact() {
                       href={social.url}
                       className="flex items-center space-x-4 sm:space-x-6 p-4 sm:p-6 rounded-3xl bg-bg-card border border-border-main hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 group"
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-bg-muted rounded-2xl flex items-center justify-center text-white group-hover:text-accent group-hover:scale-110 transition-all duration-300 shadow-inner">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-bg-muted rounded-2xl flex items-center justify-center text-white group-hover:text-accent group-hover:scale-110 transition-all duration-300 shadow-inner">
                         <Icon size={24} />
                       </div>
                       <div>

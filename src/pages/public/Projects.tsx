@@ -3,6 +3,7 @@ import { BottomBar } from '../../components/layout/BottomBar';
 import { ExternalLink, GitBranch, FolderGit2 } from 'lucide-react';
 
 import AnimatedSection from '../../components/AnimatedSection';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const mockProjects = [
   {
@@ -57,11 +58,17 @@ const mockProjects = [
 
 export default function Projects() {
   const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState(defaultPortfolioContent);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
+
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -82,7 +89,7 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading ? (
             Array.from({ length: 6 }).map((_, idx) => (
-              <div key={idx} className="bg-bg-card border border-border-main rounded-3xl overflow-hidden flex flex-col h-[400px]">
+              <div key={idx} className="bg-bg-card border border-border-main rounded-3xl overflow-hidden flex flex-col h-100">
                 <div className="w-full aspect-video bg-border-main animate-pulse"></div>
                 <div className="p-6 flex flex-col flex-1 gap-4">
                   <div className="h-3 w-20 bg-border-main animate-pulse rounded-full"></div>
@@ -99,7 +106,7 @@ export default function Projects() {
               </div>
             ))
           ) : (
-            mockProjects.map((project, idx) => (
+            content.projects.map((project, idx) => (
               <AnimatedSection 
                 key={idx} 
                 delay={idx * 0.1}
@@ -107,7 +114,7 @@ export default function Projects() {
               >
                 {/* Placeholder Image Area */}
                 <div className="w-full aspect-video bg-bg-muted relative overflow-hidden border-b border-border-main">
-                  <div className="absolute inset-0 bg-gradient-to-br from-border-main to-transparent opacity-50"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-border-main to-transparent opacity-50"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <FolderGit2 size={48} className="text-[#222] group-hover:text-border-hover transition-colors duration-300" />
                   </div>
@@ -115,7 +122,7 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   {/* Links */}
-                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-[-10px] group-hover:translate-y-0">
+                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2.5 group-hover:translate-y-0">
                     <a href={project.github} className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:text-black transition-colors">
                       <GitBranch size={18} />
                     </a>
@@ -127,7 +134,7 @@ export default function Projects() {
 
                 {/* Content Area */}
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-accent font-mono text-[10px] uppercase tracking-widest mb-2">{project.category}</p>
+                  <p className="text-accent font-mono text-[10px] uppercase tracking-widest mb-2">Project</p>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{project.title}</h3>
                   <p className="text-[#888] text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
                     {project.description}
@@ -135,7 +142,7 @@ export default function Projects() {
                   
                   {/* Tech Stack Tags */}
                   <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tech.map((tech, techIdx) => (
+                    {project.technologies.map((tech, techIdx) => (
                       <span 
                         key={techIdx} 
                         className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-[#ccc]"

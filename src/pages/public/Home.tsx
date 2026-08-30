@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import AnimatedSection from '../../components/AnimatedSection';
+import { loadPortfolioContent, defaultPortfolioContent } from '../../data/portfolio';
 
 // Import sections
 import About from './About';
@@ -13,6 +14,14 @@ import Journey from './Journey';
 import Contact from './Contact';
 
 export default function Home() {
+  const [content, setContent] = useState(defaultPortfolioContent);
+
+  useEffect(() => {
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+  }, []);
+
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -35,13 +44,13 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-4">
-                Hi, I'm <span className="text-accent">Aloysius</span>
+                Hi, I'm <span className="text-accent">{content.home.title.includes('Portfolio') ? 'Aloysius' : content.home.title}</span>
                 <br />
-                I build things for the web.
+                {content.home.subtitle}
               </h1>
               
               <p className="text-lg text-gray-400 font-light mb-10 max-w-lg leading-relaxed">
-                I'm a passionate web developer specializing in building exceptional digital experiences with modern technologies.
+                {content.home.description}
               </p>
             </AnimatedSection>
             
@@ -85,15 +94,13 @@ export default function Home() {
             <AnimatedSection delay={0.3} className="relative w-full max-w-md aspect-square flex items-center justify-center">
               {/* Purple Circle Background */}
               <div className="absolute inset-0 bg-accent rounded-full opacity-20 blur-3xl"></div>
-              <div className="absolute inset-4 bg-gradient-to-br from-accent/80 to-[#1e1b4b] rounded-full overflow-hidden flex items-center justify-center ring-2 ring-accent p-1">
-                 {/* Replace this placeholder src with your actual photo URL or local image import */}
+              <div className="absolute inset-4 bg-linear-to-br from-accent/80 to-[#1e1b4b] rounded-full overflow-hidden flex items-center justify-center ring-2 ring-accent p-1">
                  <img 
-                   src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop" 
+                   src="/profilephoto.jpeg" 
                    alt="Portrait of Aloysius" 
-                   className="w-full h-full object-cover rounded-full transition-all duration-500"
+                   className="w-full h-full object-cover object-center rounded-full transition-all duration-500 scale-[1.08]"
                  />
-                 {/* Inner gradient overlay for depth */}
-                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-black/40 pointer-events-none"></div>
+                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-white/10 to-black/40 pointer-events-none"></div>
               </div>
 
               {/* Floating Code Card */}

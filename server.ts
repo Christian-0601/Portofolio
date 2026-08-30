@@ -8,7 +8,8 @@ import apiRoutes from "./src/server/api.js";
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
+  const isProduction = process.env.NODE_ENV === 'production';
 
   // Security middleware - add security headers
   app.use(helmet());
@@ -41,7 +42,7 @@ async function startServer() {
   app.use("/api", apiRoutes);
 
   // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
+  if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -56,7 +57,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    if (process.env.NODE_ENV !== "production") {
+    if (!isProduction) {
       console.log(`Server running on http://localhost:${PORT}`);
     }
   });

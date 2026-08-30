@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BottomBar } from '../../components/layout/BottomBar';
 import { BookOpen, Target, Cpu, Code2, Shield, Server, GraduationCap } from 'lucide-react';
 
 import AnimatedSection from '../../components/AnimatedSection';
+import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const mockStats = [
   { label: 'Projects', value: '12+', description: 'Completed web & network projects' },
@@ -20,6 +21,14 @@ const mockInterests = [
 ];
 
 export default function About() {
+  const [content, setContent] = useState(defaultPortfolioContent);
+
+  useEffect(() => {
+    loadPortfolioContent()
+      .then(setContent)
+      .catch(() => setContent(defaultPortfolioContent));
+  }, []);
+
   return (
     <div className="flex-1 flex flex-col relative z-20 h-full">
       <div className="flex-1 w-full space-y-12 pb-10">
@@ -27,10 +36,9 @@ export default function About() {
         {/* Header */}
         <AnimatedSection className="mt-8">
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Discover</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">About Me</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">{content.about.title}</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            I am a vocational high school student majoring in Computer and Network Engineering (TKJ), 
-            passionate about building digital solutions and exploring the depths of modern technology infrastructures.
+            {content.about.bio}
           </p>
         </AnimatedSection>
 
@@ -50,7 +58,7 @@ export default function About() {
               
               <div className="border-l-2 border-border-main pl-6 ml-6 space-y-8 relative">
                 <div className="relative">
-                  <div className="absolute -left-[35px] top-1 w-4 h-4 rounded-full bg-bg-card border-2 border-accent"></div>
+                  <div className="absolute -left-8.75 top-1 w-4 h-4 rounded-full bg-bg-card border-2 border-accent"></div>
                   <h3 className="text-xl font-bold text-white">Computer & Network Engineering (TKJ)</h3>
                   <p className="text-accent font-mono text-sm mt-2">Vocational High School (SMK)</p>
                   <p className="text-[#888] mt-4 leading-relaxed">

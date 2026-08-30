@@ -49,15 +49,24 @@
   "certificates": [
     {
       "id": 1,
-      "name": "React Fundamentals",
-      "issuer": "Udemy",
-      "date": "2024"
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2025",
+      "credentialUrl": "https://www.credly.com/badges/f31ecfd6-eebc-47c8-bd8d-5da6248ed658/linked_in_profile"
     },
     {
       "id": 2,
-      "name": "TypeScript Mastery",
-      "issuer": "Coursera",
-      "date": "2024"
+      "name": "Belajar Dasar Pemrograman JavaScript",
+      "issuer": "Dicoding",
+      "date": "2025",
+      "credentialUrl": "https://www.dicoding.com/certificates/KEXL2QG2WZG2"
+    },
+    {
+      "id": 3,
+      "name": "Cyber Academy Certification",
+      "issuer": "Cyber Academy",
+      "date": "2025",
+      "credentialUrl": "https://www.cyberacademy.id/certificate/PKMI01104251373"
     }
   ],
   "journey": {
