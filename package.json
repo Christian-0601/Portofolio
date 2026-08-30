@@ -1,7 +1,8 @@
 {
-  "name": "react-example",
+  "name": "christian-portfolio",
+  "description": "Personal portfolio website for Christian built with React, TypeScript, Vite, and Express.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",

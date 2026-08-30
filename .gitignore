@@ -1,88 +1,45 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
-bun.lock
-package-lock.json
-yarn.lock
 
-# Build outputs
+# Build output
 build/
 dist/
 coverage/
 *.tsbuildinfo
 
-# Environment variables (NEVER commit)
+# Environment variables
 .env
-.env.local
-.env.*.local
-.env.production.local
-.env.development.local
+.env.*
 !.env.example
 
-# IDE & Editor
-.idea/
+# Editor / OS
 .vscode/
+.idea/
+.DS_Store
+Thumbs.db
 *.swp
 *.swo
 *~
-.DS_Store
-.vs_code/
-.history
-
-# OS
-Thumbs.db
-*.bak
-*.tmp
 
 # Logs
 *.log
 logs/
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
 
-# Testing
-.nyc_output/
-jest.coverage/
+# Misc
+.cache/
+.parcel-cache/
+.eslintcache/
+.turbo/
+.vercel/
 
-# Security - Backup files
-*.backup
-*.bak
-*.backup.*
-backup/
-backups/
-*.sql
-*.db
-
-# Scripts (keep local only)
-*.sh
-!.husky
-
-# Docker (if used)
-.dockerignore
-docker-compose.local.yml
-
-# Credentials & Secrets (CRITICAL)
-secrets/
-credentials/
+# Security / local-only files
 *.pem
 *.key
 *.pfx
-id_rsa*
+*.sql
+*.db
+secrets/
+credentials/
 .ssh/
-
-# Cache
-.cache/
-.eslintcache
-.parcel-cache/
-.jest-cache/
-
-# Misc
-dist-ssr
-*.local
-.turbo
-.turbopack
-
-# Production
-.next/
-out/
