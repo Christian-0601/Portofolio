@@ -81,7 +81,7 @@ export default function Projects() {
           <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Showcase</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Featured Projects</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            A selection of my recent works ranging from full-stack web applications to network infrastructure management systems.
+            This portfolio website is my current project showcase, highlighting my capabilities and professional identity.
           </p>
         </AnimatedSection>
 

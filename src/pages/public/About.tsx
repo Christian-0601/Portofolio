@@ -6,10 +6,10 @@ import AnimatedSection from '../../components/AnimatedSection';
 import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
 const mockStats = [
-  { label: 'Projects', value: '12+', description: 'Completed web & network projects' },
-  { label: 'Certificates', value: '8+', description: 'Professional IT certifications' },
-  { label: 'Technologies', value: '15+', description: 'Frameworks, tools, and systems' },
-  { label: 'Years Learning', value: '2+', description: 'Dedicated IT education' },
+  { label: 'Projects', value: '5+', description: 'Hands-on web and network projects built' },
+  { label: 'Certificates', value: '3', description: 'Professional certifications earned' },
+  { label: 'Technologies', value: '10+', description: 'Core tools, frameworks, and systems used' },
+  { label: 'Years Learning', value: '3+', description: 'Dedicated growth in IT and development' },
 ];
 
 const mockInterests = [

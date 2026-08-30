@@ -2,7 +2,7 @@
   "home": {
     "title": "Christian's Portfolio",
     "subtitle": "Full-Stack Developer | Creative Problem Solver",
-    "description": "Building beautiful and functional web experiences"
+    "description": "bridging aesthetics and functionality for impactful digital solutions"
   },
   "about": {
     "title": "About Me",
@@ -33,17 +33,12 @@
   "projects": [
     {
       "id": 1,
-      "title": "Project 1",
-      "description": "A modern web application",
-      "technologies": ["React", "TypeScript", "Tailwind"],
-      "link": "https://example.com"
-    },
-    {
-      "id": 2,
-      "title": "Project 2",
-      "description": "Another amazing project",
-      "technologies": ["Node.js", "Express", "MongoDB"],
-      "link": "https://example.com"
+      "title": "Personal Portfolio Website",
+      "description": "A modern personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase my skills, certifications, and professional profile.",
+      "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js"],
+      "link": "/",
+      "github": "https://github.com/Christian-0601",
+      "demo": "/"
     }
   ],
   "certificates": [
@@ -74,9 +69,9 @@
     "description": "Started coding in 2020, passionate about web development and continuous learning."
   },
   "contact": {
-    "email": "your-email@example.com",
-    "phone": "+1 (555) 123-4567",
-    "location": "Your City, Country",
+    "email": "tianputra594@gmail.com",
+    "phone": "+62 858 9516 1774",
+    "location": "Yogyakarta, Indonesia",
     "github": "https://github.com/Christian-0601",
     "linkedin": "https://linkedin.com/in/yourprofile"
   }

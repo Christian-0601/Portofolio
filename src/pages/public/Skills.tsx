@@ -5,6 +5,12 @@ import { Code2, Network, Wrench, ShieldCheck } from 'lucide-react';
 import AnimatedSection from '../../components/AnimatedSection';
 import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
+const getSkillLevel = (level: number) => {
+  if (level >= 90) return 'Advanced';
+  if (level >= 75) return 'Intermediate';
+  return 'Beginner';
+};
+
 const skillCategories = [
   {
     title: 'Development',
@@ -95,7 +101,7 @@ export default function Skills() {
                     <div key={skillIdx} className="space-y-2">
                       <div className="flex justify-between items-center text-sm">
                         <span className="text-white font-medium">{skill.name}</span>
-                        <span className="text-[#666] font-mono">{skill.level}%</span>
+                        <span className="text-[#666] font-medium">{getSkillLevel(skill.level)}</span>
                       </div>
                       <div className="h-1.5 w-full bg-border-main rounded-full overflow-hidden">
                         <div 

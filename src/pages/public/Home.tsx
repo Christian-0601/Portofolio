@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Download } from 'lucide-react';
 import { motion } from 'motion/react';
-import { SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
+import { SiReact, SiTypescript, SiNodedotjs, SiNextdotjs, SiTailwindcss, SiPhp, SiMysql, SiMongodb, SiJavascript, SiPython } from 'react-icons/si';
+import { FaCss3Alt } from 'react-icons/fa';
 import AnimatedSection from '../../components/AnimatedSection';
 import { loadPortfolioContent, defaultPortfolioContent } from '../../data/portfolio';
 
@@ -73,14 +74,20 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Technologies I Work With</p>
               <div className="flex flex-wrap gap-4 items-center">
                 {[
-                  { name: 'React', Icon: SiReact, color: 'group-hover:text-[#61DAFB]' },
-                  { name: 'TypeScript', Icon: SiTypescript, color: 'group-hover:text-[#3178C6]' },
-                  { name: 'Node.js', Icon: SiNodedotjs, color: 'group-hover:text-[#339933]' },
-                  { name: 'Next.js', Icon: SiNextdotjs, color: 'group-hover:text-white' },
-                  { name: 'Tailwind', Icon: SiTailwindcss, color: 'group-hover:text-[#06B6D4]' },
+                  { name: 'React', Icon: SiReact, color: 'text-[#61DAFB]' },
+                  { name: 'TypeScript', Icon: SiTypescript, color: 'text-[#3178C6]' },
+                  { name: 'JavaScript', Icon: SiJavascript, color: 'text-[#F7DF1E]' },
+                  { name: 'Node.js', Icon: SiNodedotjs, color: 'text-[#339933]' },
+                  { name: 'PHP', Icon: SiPhp, color: 'text-[#777BB4]' },
+                  { name: 'MySQL', Icon: SiMysql, color: 'text-[#4479A1]' },
+                  { name: 'MongoDB', Icon: SiMongodb, color: 'text-[#47A248]' },
+                  { name: 'Python', Icon: SiPython, color: 'text-[#3776AB]' },
+                  { name: 'CSS', Icon: FaCss3Alt, color: 'text-[#1572B6]' },
+                  { name: 'Next.js', Icon: SiNextdotjs, color: 'text-white' },
+                  { name: 'Tailwind', Icon: SiTailwindcss, color: 'text-[#06B6D4]' },
                 ].map((tech) => (
                   <div key={tech.name} title={tech.name} className="w-10 h-10 rounded-lg bg-bg-card border border-border-main flex items-center justify-center group hover:border-accent/50 transition-colors">
-                    <span className={`text-xl text-gray-400 transition-colors ${tech.color}`}>
+                    <span className={`text-xl transition-all duration-300 group-hover:scale-110 ${tech.color}`}>
                       <tech.Icon />
                     </span>
                   </div>
@@ -117,11 +124,11 @@ export default function Home() {
                 <div className="font-mono text-xs text-left leading-relaxed">
                   <span className="text-purple-400">const</span> <span className="text-blue-400">developer</span> = {'{'}
                   <br />
-                  &nbsp;&nbsp;<span className="text-gray-300">name:</span> <span className="text-orange-300">"Aloysius"</span>,
+                  &nbsp;&nbsp;<span className="text-gray-300">name:</span> <span className="text-orange-300">"Christian"</span>,
                   <br />
-                  &nbsp;&nbsp;<span className="text-gray-300">skills:</span> [<span className="text-orange-300">"React"</span>, <span className="text-orange-300">"TS"</span>],
+                  &nbsp;&nbsp;<span className="text-gray-300">skills:</span> [<span className="text-orange-300">"React"</span>, <span className="text-orange-300">"PHP"</span>, <span className="text-orange-300">"MySQL"</span>, <span className="text-orange-300">"MongoDB"</span>, <span className="text-orange-300">"Python"</span>],
                   <br />
-                  &nbsp;&nbsp;<span className="text-gray-300">passion:</span> <span className="text-orange-300">"Building web"</span>
+                  &nbsp;&nbsp;<span className="text-gray-300">passion:</span> <span className="text-orange-300">"Building impactful digital products"</span>
                   <br />
                   {'}'};
                 </div>

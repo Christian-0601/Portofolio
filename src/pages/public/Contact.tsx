@@ -5,35 +5,35 @@ import { SiLinktree } from 'react-icons/si';
 import AnimatedSection from '../../components/AnimatedSection';
 import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfolio';
 
-const socialLinks = [
-  {
-    name: 'Linktree',
-    icon: SiLinktree,
-    url: '#',
-    description: 'Find all my important links in one place.'
-  },
-  {
-    name: 'GitHub',
-    icon: GitBranch,
-    url: '#',
-    description: 'Explore my open-source projects and code repositories.'
-  },
-  {
-    name: 'LinkedIn',
-    icon: Briefcase,
-    url: '#',
-    description: 'Connect with me for professional opportunities and networking.'
-  },
-  {
-    name: 'Discord',
-    icon: MessageSquare,
-    url: '#',
-    description: 'Join my community or send me a direct message.'
-  }
-];
-
 export default function Contact() {
   const [content, setContent] = useState(defaultPortfolioContent);
+  const whatsappPhone = content.contact.phone.replace(/\D/g, '');
+  const socialLinks = [
+    {
+      name: 'Linktree',
+      icon: SiLinktree,
+      url: 'https://linktr.ee/aloysiuschrist',
+      description: 'Find all my important links in one place.'
+    },
+    {
+      name: 'GitHub',
+      icon: GitBranch,
+      url: 'https://github.com/Christian-0601',
+      description: 'Explore my open-source projects and code repositories.'
+    },
+    {
+      name: 'LinkedIn',
+      icon: Briefcase,
+      url: 'https://www.linkedin.com/in/aloysius-christian-putra/',
+      description: 'Connect with me for professional opportunities and networking.'
+    },
+    {
+      name: 'WhatsApp',
+      icon: MessageSquare,
+      url: whatsappPhone ? `https://wa.me/${whatsappPhone}` : '#',
+      description: 'Chat with me directly on WhatsApp.'
+    }
+  ];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -237,6 +237,8 @@ export default function Contact() {
                     <a 
                       key={idx} 
                       href={social.url}
+                      target={social.url.startsWith('http') ? '_blank' : undefined}
+                      rel={social.url.startsWith('http') ? 'noreferrer' : undefined}
                       className="flex items-center space-x-4 sm:space-x-6 p-4 sm:p-6 rounded-3xl bg-bg-card border border-border-main hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 group"
                     >
                       <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-bg-muted rounded-2xl flex items-center justify-center text-white group-hover:text-accent group-hover:scale-110 transition-all duration-300 shadow-inner">
