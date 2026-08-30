@@ -7,26 +7,26 @@ const mockJourney = [
   {
     id: 1,
     year: '2024 - Present',
-    title: 'Cloud Architecture & Full-Stack Development',
-    description: 'Preparing for cloud certifications (AWS) while building complex full-stack applications using React, Node.js, and modern CI/CD pipelines. Exploring containerization with Docker and Kubernetes.'
+    title: 'Vocational School & Technology Growth',
+    description: 'Started my journey in SMK and began learning more seriously about computer networking, web development, and digital problem solving. This period shaped my interest in building practical, useful technology solutions.'
   },
   {
     id: 2,
-    year: '2023',
-    title: 'Professional Certifications & Advanced Networking',
-    description: 'Achieved the MTCNA certification and deepened knowledge in enterprise networking. Began integrating network automation tools and developing custom ISP management dashboards.'
+    year: '2025',
+    title: 'Strengthening Web & Backend Skills',
+    description: 'Focused on improving my skills in JavaScript, React, PHP, MySQL, and modern web development. I started exploring full-stack development and building projects that combine logic, design, and usability.'
   },
   {
     id: 3,
-    year: '2022',
-    title: 'Diving into Web Development',
-    description: 'Transitioned from pure networking into software development. Learned HTML, CSS, JavaScript, and PHP. Built first dynamic web projects using Laravel and MySQL.'
+    year: '2025',
+    title: 'Building Portfolio & Certifications',
+    description: 'Expanded my learning through certifications and hands-on work, while creating personal portfolio projects to showcase my growth in frontend, backend, and digital product development.'
   },
   {
     id: 4,
-    year: '2021',
-    title: 'Started Vocational High School (TKJ)',
-    description: 'Enrolled in Computer and Network Engineering. Built a strong foundation in hardware troubleshooting, operating systems (Linux/Windows), and basic LAN topologies.'
+    year: '2024',
+    title: 'Started SMK',
+    description: 'Entered vocational school and began developing a stronger foundation in technology, computer systems, and the basics of programming and networking.'
   }
 ];
 
