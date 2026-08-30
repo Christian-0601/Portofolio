@@ -112,21 +112,28 @@ export default function Projects() {
                 delay={idx * 0.1}
                 className="bg-bg-card border border-border-main rounded-3xl overflow-hidden hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,255,0,0.05)] transition-all duration-300 group flex flex-col cursor-pointer"
               >
-                {/* Placeholder Image Area */}
+                {/* Project Image Area */}
                 <div className="w-full aspect-video bg-bg-muted relative overflow-hidden border-b border-border-main">
-                  <div className="absolute inset-0 bg-linear-to-br from-border-main to-transparent opacity-50"></div>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-linear-to-br from-border-main to-transparent opacity-50"></div>
+                  )}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <FolderGit2 size={48} className="text-[#222] group-hover:text-border-hover transition-colors duration-300" />
+                    {!project.image && <FolderGit2 size={48} className="text-[#222] group-hover:text-border-hover transition-colors duration-300" />}
                   </div>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   {/* Links */}
                   <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2.5 group-hover:translate-y-0">
-                    <a href={project.github} className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:text-black transition-colors">
+                    <a href={project.github || '#'} className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:text-black transition-colors">
                       <GitBranch size={18} />
                     </a>
-                    <a href={project.demo} className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:text-black transition-colors">
+                    <a href={project.demo || '#'} className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:text-black transition-colors">
                       <ExternalLink size={18} />
                     </a>
                   </div>

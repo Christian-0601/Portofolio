@@ -15,6 +15,9 @@ export type PortfolioSectionContent = {
     description: string;
     technologies: string[];
     link: string;
+    image?: string;
+    github?: string;
+    demo?: string;
   }>;
   certificates: Array<{
     id: number;
@@ -42,7 +45,7 @@ export const defaultPortfolioContent: PortfolioSectionContent = {
   home: {
     title: "Christian's Portfolio",
     subtitle: "Full-Stack Developer | Creative Problem Solver",
-    description: "Building beautiful and functional web experiences",
+    description: "bridging aesthetics and functionality for impactful digital solutions",
   },
   about: {
     title: "About Me",
@@ -58,17 +61,13 @@ export const defaultPortfolioContent: PortfolioSectionContent = {
   projects: [
     {
       id: 1,
-      title: "Project 1",
-      description: "A modern web application",
-      technologies: ["React", "TypeScript", "Tailwind"],
-      link: "https://example.com",
-    },
-    {
-      id: 2,
-      title: "Project 2",
-      description: "Another amazing project",
-      technologies: ["Node.js", "Express", "MongoDB"],
-      link: "https://example.com",
+      title: "Personal Portfolio Website",
+      description: "A modern personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase my skills, certifications, and professional profile.",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js"],
+      link: "/",
+      image: "/portofolio-project.png",
+      github: "https://github.com/Christian-0601",
+      demo: "/",
     },
   ],
   certificates: [

@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Christian's Portfolio",
-    "subtitle": "Full-Stack Developer | Creative Problem Solver",
+    "title": "Christian",
+    "subtitle": "Full-Stack Developer • Problem Solver • Digital Creator",
     "description": "bridging aesthetics and functionality for impactful digital solutions"
   },
   "about": {
@@ -37,6 +37,7 @@
       "description": "A modern personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase my skills, certifications, and professional profile.",
       "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js"],
       "link": "/",
+      "image": "/portofolio-project.png",
       "github": "https://github.com/Christian-0601",
       "demo": "/"
     }
