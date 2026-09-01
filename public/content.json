@@ -1,12 +1,12 @@
 {
   "home": {
     "title": "Christian",
-    "subtitle": "Full-Stack Developer • Problem Solver • Digital Creator",
-    "description": "bridging aesthetics and functionality for impactful digital solutions"
+    "subtitle": "Web Developer • Problem Solver • Digital Creator",
+    "description": "menghubungkan estetika dan fungsionalitas untuk solusi digital yang berdampak"
   },
   "about": {
-    "title": "About Me",
-    "bio": "I'm a passionate full-stack developer with experience in React, TypeScript, and modern web technologies. I love creating user-friendly applications and solving complex problems."
+    "title": "Tentang Saya",
+    "bio": "Saya adalah developer full-stack yang bersemangat dengan pengalaman di React, TypeScript, dan teknologi web modern. Saya suka membuat aplikasi yang ramah pengguna dan menyelesaikan masalah dengan solusi yang efektif."
   },
   "skills": [
     {
@@ -66,8 +66,8 @@
     }
   ],
   "journey": {
-    "title": "My Journey",
-    "description": "I started my journey in vocational school in 2024, where I began learning more seriously about technology, programming, and digital problem solving. Since then, I have grown through hands-on practice, self-learning, and building projects that sharpen both my technical and creative skills."
+    "title": "Perjalanan Saya",
+    "description": "Saya memulai perjalanan di SMK pada tahun 2024, di mana saya mulai belajar lebih serius tentang teknologi, pemrograman, dan pemecahan masalah digital. Sejak saat itu, saya berkembang melalui praktik langsung, pembelajaran mandiri, dan pembuatan proyek yang mengasah kemampuan teknis serta kreativitas saya."
   },
   "contact": {
     "email": "tianputra594@gmail.com",

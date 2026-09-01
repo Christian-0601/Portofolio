@@ -6,27 +6,27 @@ import { defaultPortfolioContent, loadPortfolioContent } from '../../data/portfo
 const mockJourney = [
   {
     id: 1,
-    year: '2024 - Present',
-    title: 'Vocational School & Technology Growth',
-    description: 'Started my journey in SMK and began learning more seriously about computer networking, web development, and digital problem solving. This period shaped my interest in building practical, useful technology solutions.'
+    year: '2024 - Sekarang',
+    title: 'SMK dan Perkembangan Teknologi',
+    description: 'Saya memulai perjalanan di SMK dan mulai belajar lebih serius tentang jaringan komputer, pengembangan web, dan pemecahan masalah digital. Periode ini membentuk minat saya untuk membangun solusi teknologi yang praktis dan bermanfaat.'
   },
   {
     id: 2,
     year: '2025',
-    title: 'Strengthening Web & Backend Skills',
-    description: 'Focused on improving my skills in JavaScript, React, PHP, MySQL, and modern web development. I started exploring full-stack development and building projects that combine logic, design, and usability.'
+    title: 'Memperkuat Keahlian Web & Backend',
+    description: 'Saya fokus meningkatkan kemampuan di JavaScript, React, PHP, MySQL, dan pengembangan web modern. Saya mulai mengeksplorasi full-stack development dan membangun proyek yang menggabungkan logika, desain, dan kegunaan.'
   },
   {
     id: 3,
     year: '2025',
-    title: 'Building Portfolio & Certifications',
-    description: 'Expanded my learning through certifications and hands-on work, while creating personal portfolio projects to showcase my growth in frontend, backend, and digital product development.'
+    title: 'Membangun Portofolio & Sertifikat',
+    description: 'Saya memperluas pembelajaran melalui sertifikat dan kerja praktik langsung, sambil membuat proyek portofolio pribadi untuk menunjukkan perkembangan saya di frontend, backend, dan pengembangan produk digital.'
   },
   {
     id: 4,
     year: '2024',
-    title: 'Started SMK',
-    description: 'Entered vocational school and began developing a stronger foundation in technology, computer systems, and the basics of programming and networking.'
+    title: 'Mulai SMK',
+    description: 'Saya masuk ke sekolah kejuruan dan mulai membangun fondasi yang lebih kuat dalam teknologi, sistem komputer, serta dasar pemrograman dan jaringan.'
   }
 ];
 

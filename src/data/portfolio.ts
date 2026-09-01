@@ -43,13 +43,13 @@ export type PortfolioSectionContent = {
 
 export const defaultPortfolioContent: PortfolioSectionContent = {
   home: {
-    title: "Christian's Portfolio",
-    subtitle: "Full-Stack Developer | Creative Problem Solver",
-    description: "bridging aesthetics and functionality for impactful digital solutions",
+    title: "Portofolio Christian",
+    subtitle: "Web Developer | Problem Solver Kreatif",
+    description: "menghubungkan estetika dan fungsionalitas untuk solusi digital yang berdampak",
   },
   about: {
-    title: "About Me",
-    bio: "I'm a passionate full-stack developer with experience in React, TypeScript, and modern web technologies. I love creating user-friendly applications and solving complex problems.",
+    title: "Tentang Saya",
+    bio: "Saya adalah developer full-stack yang bersemangat dengan pengalaman di React, TypeScript, dan teknologi web modern. Saya suka membuat aplikasi yang ramah pengguna dan menyelesaikan masalah dengan solusi yang efektif.",
   },
   skills: [
     { name: "React", color: "#61DAFB" },
@@ -85,8 +85,8 @@ export const defaultPortfolioContent: PortfolioSectionContent = {
     },
   ],
   journey: {
-    title: "My Journey",
-    description: "Started coding in 2020, passionate about web development and continuous learning.",
+    title: "Perjalanan Saya",
+    description: "Saya mulai belajar coding dengan semangat untuk terus berkembang di bidang pengembangan web dan pembelajaran berkelanjutan.",
   },
   contact: {
     email: "your-email@example.com",

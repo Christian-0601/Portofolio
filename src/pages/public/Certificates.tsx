@@ -93,11 +93,11 @@ export default function Certificates() {
         
         {/* Header */}
         <div className="mt-8">
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Credentials</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Certificates</h1>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Kredensial</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Sertifikat</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            Professional certifications and awards that validate my skills in network engineering, 
-            cloud computing, and software development.
+            Sertifikat dan penghargaan profesional yang membuktikan kemampuan saya di bidang jaringan, 
+            cloud computing, dan pengembangan perangkat lunak.
           </p>
         </div>
 
@@ -182,7 +182,7 @@ export default function Certificates() {
                   
                   <div className="mt-auto pt-4 border-t border-border-main flex items-center justify-between">
                     <span className="text-accent text-[10px] font-mono uppercase tracking-[0.18em] group-hover:translate-x-1 transition-transform">
-                      View Details
+                      Lihat Detail
                     </span>
                     {cert.credentialUrl && (
                       <span className="text-[#666] text-xs">↗</span>

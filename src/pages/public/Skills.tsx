@@ -75,8 +75,8 @@ export default function Skills() {
         
         {/* Header */}
         <AnimatedSection className="mt-8">
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Capabilities</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Technical Skills</h1>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Kemampuan</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Keahlian Teknis</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
             {content.about.bio}
           </p>

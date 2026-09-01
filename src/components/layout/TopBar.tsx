@@ -7,13 +7,13 @@ export const TopBar = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const links = [
-    { name: 'Home', path: '#home' },
-    { name: 'About', path: '#about' },
-    { name: 'Skills', path: '#skills' },
-    { name: 'Projects', path: '#projects' },
-    { name: 'Certificates', path: '#certificates' },
-    { name: 'Journey', path: '#journey' },
-    { name: 'Contact', path: '#contact' },
+    { name: 'Beranda', path: '#home' },
+    { name: 'Tentang', path: '#about' },
+    { name: 'Keahlian', path: '#skills' },
+    { name: 'Proyek', path: '#projects' },
+    { name: 'Sertifikat', path: '#certificates' },
+    { name: 'Perjalanan', path: '#journey' },
+    { name: 'Kontak', path: '#contact' },
   ];
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export const TopBar = () => {
                 onClick={(e) => handleLinkClick(e, '#contact')}
                 className="flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
               >
-                Hire Me
+                Hubungi Saya
                 <ArrowUpRight size={16} />
               </a>
             </div>
@@ -155,7 +155,7 @@ export const TopBar = () => {
                   style={{ pointerEvents: 'auto' }}
                   className="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-hover text-white px-5 py-3 rounded-lg font-medium text-sm transition-all cursor-pointer"
                 >
-                  Hire Me
+                  Hubungi Saya
                   <ArrowUpRight size={16} />
                 </a>
               </div>

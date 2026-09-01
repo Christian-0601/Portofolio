@@ -41,11 +41,11 @@ export default function Home() {
           <div className="flex flex-col justify-center order-2 lg:order-1 pb-16">
             <AnimatedSection>
               <div className="inline-block bg-accent/10 border border-accent/20 text-accent text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
-                I'm a Web Developer
+                Saya Web Developer
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-4">
-                Hi, I'm <span className="text-accent">{content.home.title.includes('Portfolio') ? 'Aloysius' : content.home.title}</span>
+                Halo, Saya <span className="text-accent">{content.home.title.includes('Portfolio') ? 'Aloysius' : content.home.title}</span>
                 <br />
                 {content.home.subtitle}
               </h1>
@@ -57,7 +57,7 @@ export default function Home() {
             
             <AnimatedSection delay={0.1} className="flex flex-col sm:flex-row gap-4 mb-12">
               <a href="#projects" onClick={(e) => handleScrollTo(e, 'projects')} className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white px-6 py-3.5 rounded-lg font-medium transition-all group">
-                View My Work
+                Lihat Karyaku
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
               <a
@@ -65,13 +65,13 @@ export default function Home() {
                 download="Aloysius-Christian-CV-ATS-VII-TKJ-2026.pdf"
                 className="flex items-center justify-center gap-2 border border-border-hover text-white hover:bg-white/5 px-6 py-3.5 rounded-lg font-medium transition-all"
               >
-                Download CV
+                Unduh CV
                 <Download size={18} />
               </a>
             </AnimatedSection>
             
             <AnimatedSection delay={0.2}>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Technologies I Work With</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Teknologi yang Saya Gunakan</p>
               <div className="flex flex-wrap gap-4 items-center">
                 {[
                   { name: 'React', Icon: SiReact, color: 'text-[#61DAFB]' },

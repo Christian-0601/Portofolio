@@ -78,10 +78,10 @@ export default function Projects() {
         
         {/* Header */}
         <AnimatedSection className="mt-8">
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Showcase</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Featured Projects</h1>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Tampilan</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Proyek Unggulan</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            This portfolio website is my current project showcase, highlighting my capabilities and professional identity.
+            Website portofolio ini adalah showcase proyek saat ini yang menampilkan kemampuan dan identitas profesional saya.
           </p>
         </AnimatedSection>
 

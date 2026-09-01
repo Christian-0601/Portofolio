@@ -13,25 +13,25 @@ export default function Contact() {
       name: 'Linktree',
       icon: SiLinktree,
       url: 'https://linktr.ee/aloysiuschrist',
-      description: 'Find all my important links in one place.'
+      description: 'Temukan semua tautan penting saya di satu tempat.'
     },
     {
       name: 'GitHub',
       icon: GitBranch,
       url: 'https://github.com/Christian-0601',
-      description: 'Explore my open-source projects and code repositories.'
+      description: 'Jelajahi proyek open-source dan repositori kode saya.'
     },
     {
       name: 'LinkedIn',
       icon: Briefcase,
       url: 'https://www.linkedin.com/in/aloysius-christian-putra/',
-      description: 'Connect with me for professional opportunities and networking.'
+      description: 'Terhubung dengan saya untuk peluang profesional dan networking.'
     },
     {
       name: 'WhatsApp',
       icon: MessageSquare,
       url: whatsappPhone ? `https://wa.me/${whatsappPhone}` : '#',
-      description: 'Chat with me directly on WhatsApp.'
+      description: 'Chat langsung dengan saya melalui WhatsApp.'
     }
   ];
   const [formData, setFormData] = useState({
@@ -53,21 +53,21 @@ export default function Contact() {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    else if (formData.name.length < 2) newErrors.name = 'Name must be at least 2 characters';
-    else if (formData.name.length > 50) newErrors.name = 'Name must be less than 50 characters';
+    if (!formData.name.trim()) newErrors.name = 'Nama wajib diisi';
+    else if (formData.name.length < 2) newErrors.name = 'Nama minimal 2 karakter';
+    else if (formData.name.length > 50) newErrors.name = 'Nama maksimal 50 karakter';
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email format';
+    if (!formData.email.trim()) newErrors.email = 'Email wajib diisi';
+    else if (!emailRegex.test(formData.email)) newErrors.email = 'Format email tidak valid';
 
-    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
-    else if (formData.subject.length < 3) newErrors.subject = 'Subject must be at least 3 characters';
-    else if (formData.subject.length > 100) newErrors.subject = 'Subject must be less than 100 characters';
+    if (!formData.subject.trim()) newErrors.subject = 'Subjek wajib diisi';
+    else if (formData.subject.length < 3) newErrors.subject = 'Subjek minimal 3 karakter';
+    else if (formData.subject.length > 100) newErrors.subject = 'Subjek maksimal 100 karakter';
 
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    else if (formData.message.length < 10) newErrors.message = 'Message must be at least 10 characters';
-    else if (formData.message.length > 1000) newErrors.message = 'Message must be less than 1000 characters';
+    if (!formData.message.trim()) newErrors.message = 'Pesan wajib diisi';
+    else if (formData.message.length < 10) newErrors.message = 'Pesan minimal 10 karakter';
+    else if (formData.message.length > 1000) newErrors.message = 'Pesan maksimal 1000 karakter';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -101,11 +101,11 @@ export default function Contact() {
         
         {/* Header */}
         <AnimatedSection className="mt-8">
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Get In Touch</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Contact Me</h1>
+          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-4">Hubungi Saya</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tighter mb-6">Kontak</h1>
           <p className="text-[#888] text-lg max-w-2xl leading-relaxed">
-            Whether you have a question, a project proposal, or just want to say hi, 
-            I'll try my best to get back to you!
+            Baik Anda punya pertanyaan, proposal proyek, atau hanya ingin menyapa, 
+            saya akan berusaha membalas secepat mungkin.
           </p>
         </AnimatedSection>
 
@@ -113,26 +113,26 @@ export default function Contact() {
           
           {/* Left Column - Contact Form */}
           <AnimatedSection delay={0.1} className="bg-bg-card border border-border-main rounded-3xl p-8 lg:p-10 hover:border-[#222] transition-colors">
-            <h2 className="text-2xl font-bold text-white mb-8">Send a Message</h2>
+            <h2 className="text-2xl font-bold text-white mb-8">Kirim Pesan</h2>
             
             <form className="space-y-6" onSubmit={handleSubmit}>
               {isSuccess && (
                 <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 flex items-center space-x-3 text-accent">
                   <CheckCircle size={20} />
-                  <span className="font-medium text-sm">Message sent successfully! I'll get back to you soon.</span>
+                  <span className="font-medium text-sm">Pesan berhasil dikirim! Saya akan segera membalas Anda.</span>
                 </div>
               )}
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Your Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Nama Anda</label>
                   <input 
                     type="text" 
                     id="name" 
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full bg-bg-main border ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-border-main focus:border-accent focus:ring-accent'} rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all duration-300 placeholder:text-[#444]`}
-                    placeholder="John Doe"
+                    placeholder="Nama Anda"
                     disabled={isSubmitting}
                   />
                   {errors.name && (
@@ -140,14 +140,14 @@ export default function Contact() {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Alamat Email</label>
                   <input 
                     type="email" 
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full bg-bg-main border ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-border-main focus:border-accent focus:ring-accent'} rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all duration-300 placeholder:text-[#444]`}
-                    placeholder="john@example.com"
+                    placeholder="contoh@email.com"
                     disabled={isSubmitting}
                   />
                   {errors.email && (
@@ -158,7 +158,7 @@ export default function Contact() {
 
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <label htmlFor="subject" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Subjek</label>
                   <span className="text-xs text-[#555] font-mono">{formData.subject.length}/100</span>
                 </div>
                 <input 
@@ -167,7 +167,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   className={`w-full bg-bg-main border ${errors.subject ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-border-main focus:border-accent focus:ring-accent'} rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all duration-300 placeholder:text-[#444]`}
-                  placeholder="Project Inquiry"
+                  placeholder="Pertanyaan Proyek"
                   disabled={isSubmitting}
                 />
                 {errors.subject && (
@@ -177,7 +177,7 @@ export default function Contact() {
 
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <label htmlFor="message" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-[#888] uppercase tracking-wider">Pesan</label>
                   <span className="text-xs text-[#555] font-mono">{formData.message.length}/1000</span>
                 </div>
                 <textarea 
@@ -186,7 +186,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className={`w-full bg-bg-main border ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-border-main focus:border-accent focus:ring-accent'} rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-1 transition-all duration-300 placeholder:text-[#444] resize-none`}
-                  placeholder="Hello, I'd like to talk about..."
+                  placeholder="Halo, saya ingin membahas tentang..."
                   disabled={isSubmitting}
                 ></textarea>
                 {errors.message && (
@@ -199,7 +199,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-white/5 border border-white/10 hover:bg-accent hover:text-black hover:border-accent text-white disabled:opacity-50 disabled:cursor-not-allowed rounded-xl px-6 py-4 font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center space-x-3 group"
               >
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <span>{isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}</span>
                 {!isSubmitting && <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />}
               </button>
             </form>
@@ -213,7 +213,7 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-accent mb-4">
                   <Mail size={24} />
                 </div>
-                <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Email Me</p>
+                <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Email Saya</p>
                 <p className="text-white font-medium">{content.contact.email}</p>
               </div>
 
@@ -221,14 +221,14 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-accent mb-4">
                   <MapPin size={24} />
                 </div>
-                <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Location</p>
+                <p className="text-[#888] text-sm uppercase tracking-widest mb-1 font-medium">Lokasi</p>
                 <p className="text-white font-medium">{content.contact.location}</p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
-              <h2 className="text-2xl font-bold text-white pt-4 mb-2">Connect with me</h2>
-              <p className="text-[#888] mb-6">Find me across these digital spaces.</p>
+              <h2 className="text-2xl font-bold text-white pt-4 mb-2">Terhubung dengan saya</h2>
+              <p className="text-[#888] mb-6">Temukan saya di berbagai ruang digital ini.</p>
 
               <div className="space-y-4">
                 {socialLinks.map((social, idx) => {
